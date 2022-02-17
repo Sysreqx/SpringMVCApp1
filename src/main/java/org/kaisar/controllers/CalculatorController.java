@@ -16,25 +16,29 @@ public class CalculatorController {
                                  @RequestParam(value = "c", required = false) String c,
                                  Model model) {
         int n = 0;
-
+        String s;
         if (Objects.equals(c, "add")) {
             n = Integer.parseInt(a) + Integer.parseInt(b);
-            model.addAttribute("message", a + " + " + b + " = " + n);
+            s = String.valueOf(n);
+            model.addAttribute("message", a + " + " + b + " = " + s);
         }
         else if (Objects.equals(c, "subtract")) {
             n = Integer.parseInt(a) - Integer.parseInt(b);
-            model.addAttribute("message", a + " - " + b + " = " + n);
+            s = String.valueOf(n);
+            model.addAttribute("message", a + " - " + b + " = " + s);
         }
         else if (Objects.equals(c, "multiply")) {
             n = Integer.parseInt(a) * Integer.parseInt(b);
-            model.addAttribute("message", a + " * " + b + " = " + n);
+            s = String.valueOf(n);
+            model.addAttribute("message", a + " * " + b + " = " + s);
         }
         else if (Objects.equals(c, "divide")) {
             n = Integer.parseInt(a) / Integer.parseInt(b);
-            model.addAttribute("message", a + " / " + b + " = " + n);
+            s = String.valueOf(n);
+            model.addAttribute("message", a + " / " + b + " = " + s);
         }
         else {
-            model.addAttribute("message", "ERROR");
+            model.addAttribute("message", a + " " + b + " " + c);
         }
 
         return "calculator/calculator";
